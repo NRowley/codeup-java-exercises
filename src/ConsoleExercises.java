@@ -51,9 +51,9 @@ public class ConsoleExercises {
         float widthNum = Float.parseFloat(width);
 
         System.out.printf("Length: %f%nWidth: %f%n", lengthNum, widthNum);
-        float area = widthNum*lengthNum;
+        float area = widthNum * lengthNum;
         System.out.printf("Area: %f%n", area);
-        float perimeter = (widthNum*2)+(lengthNum*2);
+        float perimeter = (widthNum * 2) + (lengthNum * 2);
         System.out.printf("Perimeter: %f%n", perimeter);
     }
 }
