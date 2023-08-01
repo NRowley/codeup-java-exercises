@@ -85,9 +85,17 @@ public class ControlFlowExercises {
             int square = i * i;
             int cube = i * i * i;
             System.out.printf("%-6d | %-8d| %-5d |%n", i, square, cube);
+
+            Scanner continueScan = new Scanner(System.in);
+            System.out.println("Continue table?[y/n]");
+            String cont = continueScan.next();
+            if (cont.equalsIgnoreCase("n")) {
+                i = num + 1;
+            }
+
             if (i == num) {
                 Scanner confirmScan = new Scanner(System.in);
-                System.out.println("Continue?[y/n]");
+                System.out.println("Add numbers to table?[y/n]");
                 String confirm = confirmScan.next();
                 if (confirm.equals("y")) {
                     Scanner newNumScan = new Scanner(System.in);
