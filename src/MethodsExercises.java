@@ -92,17 +92,19 @@ public class MethodsExercises {
         return userInput;
     }
 
-    public static long factorial(int num) {
+    public static void factorial(int num) {
         String factorialString = num + "! = " + num;
         int factorialNum = num;
         long result = num;
+
         for (int i = 1; i < num; i++) {
             factorialNum = factorialNum - 1;
             result = result * factorialNum;
             factorialString += " x " + factorialNum;
         }
+        factorialString += " = " + result;
         System.out.println(factorialString);
-        return result;
+
     }
 
     public static String diceRoll(int diceAmount, int diceSides) {
@@ -128,23 +130,24 @@ public class MethodsExercises {
 //        int y = scanner.nextInt();
 
 //        //Input validation and Factorials
-//        while (continueConfirm.equalsIgnoreCase("y")) {
-//            //for user Input Validation
-//            System.out.println("Enter a number between 1 - 10: ");
-//            int userInput = getInteger(1, 10);
-//            System.out.printf("%d is a valid input\n", userInput);
-//
-//            //for factorial Calculation
+        while (continueConfirm.equalsIgnoreCase("y")) {
+            //for user Input Validation
+            System.out.println("Enter a number between 1 - 10: ");
+            int userInput = getInteger(1, 10);
+            System.out.printf("%d is a valid input\n", userInput);
+
+            //for factorial Calculation
 //            System.out.println("Factorial: " + factorial(userInput));
-//            System.out.println("Run another factorial?[y/n]");
-//            continueConfirm = scanner.next();
-//        }
+            factorial(userInput);
+            System.out.println("Run another factorial?[y/n]");
+            continueConfirm = scanner.next();
+        }
 
         //Dice rollin
-        System.out.println("Enter the amount and sides of the dice: ");
-        int diceAmount = scanner.nextInt();
-        int diceSides = scanner.nextInt();
-        System.out.println(diceRoll(diceAmount, diceSides));
+//        System.out.println("Enter the amount and sides of the dice: ");
+//        int diceAmount = scanner.nextInt();
+//        int diceSides = scanner.nextInt();
+//        System.out.println(diceRoll(diceAmount, diceSides));
 
 //        System.out.println("Calling add Method: " + add(x, y));
 //        System.out.println("Calling subtract Method: " + subtract(x, y));

@@ -53,7 +53,7 @@ public class HighLow {
         String userConfirmPlay = userInputScan.next();
         int numOfGuesses = 0;
         int highScore = 20;
-        int maximumGuesses = 2;
+        int maximumGuesses = 20;
 
         while (userConfirmPlay.equalsIgnoreCase("y")) {
             int numberToGuess = getRandomNumber();
