@@ -14,9 +14,9 @@ import util.Input;
 
 public class CircleApp {
     public static void main(String[] args) {
-        boolean moreCircles = true;
+        boolean moreCircles;
         int circleCount = 0;
-        while (moreCircles) {
+        do {
             Input scanner = new Input();
             double radius = scanner.getDouble();
             Circle circle = new Circle(radius);
@@ -25,7 +25,7 @@ public class CircleApp {
             circleCount++;
             System.out.println("Make another circle?[y/n]");
             moreCircles = scanner.yesNo();
-        }
+        } while (moreCircles);
         System.out.println(circleCount + " circles made");
     }
 }

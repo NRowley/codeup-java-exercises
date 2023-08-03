@@ -94,7 +94,6 @@ public class MethodsExercises {
         int userInput = intRangeScan.nextInt();
         while (userInput < min || userInput > max) {
             System.out.printf("ERROR %d is not a valid input!\n Enter a number between %d and %d\n", userInput, min, max);
-//            getInteger(min, max);
             userInput = intRangeScan.nextInt();
         }
         return userInput;
