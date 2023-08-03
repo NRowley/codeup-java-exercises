@@ -39,9 +39,26 @@ public class MethodPractice {
         return canHalf;
     }
 
+    // TODO: create a method, sayName, that can take in a single name String input or two name String inputs and will return
+    //  a greeting message to the user by either their first or first and last name.
+    // example: sayName("Justin") - "Hi Justin"
+    // example: sayName("Justin", "Reich") - "Hi Justin Reich"
+    // TODO: overload the math exercises from the curriculum exercise to work with both integers and doubles
+
+    public static String sayName(String name) {
+        return name;
+    }
+
+    public static String sayName(String fName, String lName) {
+        return fName + " " + lName;
+    }
+
+    ////////////////////////////////////////////////////////
     public static void main(String[] args) {
 //        System.out.println(returnName());
 //        System.out.println(returnLongerString());
-        System.out.println(canBeHalved());
+//        System.out.println(canBeHalved());
+        System.out.println(sayName("Nic"));
+        System.out.println(sayName("Nic", "Rowley"));
     }
 }
