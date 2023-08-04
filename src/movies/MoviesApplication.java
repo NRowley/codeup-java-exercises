@@ -21,8 +21,8 @@ public class MoviesApplication {
 
         int viewOption;
         do {
-            System.out.println("Please enter an option!\n0: Exit\n1: View All Movies\n2: View Animated Movies\n3: View Drama Movies\n4: View Horror Movies\n5: View SciFi Movies\n6: Add a movie");
-            viewOption = movieInputs.getInt(0, 6);
+            System.out.println("Please enter an option!\n0: Exit\n1: View All Movies\n2: View Animated Movies\n3: View Drama Movies\n4: View Horror Movies\n5: View SciFi Movies\n6: View Comedy Movies\n7: Add a movie");
+            viewOption = movieInputs.getInt(0, 7);
             if (viewOption == 1) {
                 getAllMovies(allMovies);
             } else if (viewOption == 2) {
@@ -37,21 +37,26 @@ public class MoviesApplication {
             } else if (viewOption == 5) {
                 String cat = "SciFi";
                 getMoviesByCat(allMovies, cat);
-            } else if (viewOption == 6) {
+            }else if (viewOption == 6) {
+                String cat = "Comedy";
+                getMoviesByCat(allMovies, cat);
+            } else if (viewOption == 7) {
                 System.out.println("Add a Movie!\n------------------------------");
                 System.out.println("Enter movie name:");
                 String newMovieName = movieInputs.getString();
                 String newMovieCat = "";
-                System.out.println("Select a category:\n1: Animated\n2: Drama\n3: Horror\n4: SciFi\n");
-                int newMovieCategoryNum = movieInputs.getInt(1, 4);
+                System.out.println("Select a category:\n1: Animated\n2: Drama\n3: Horror\n4: SciFi\n5: Comedy\n");
+                int newMovieCategoryNum = movieInputs.getInt(1, 5);
                 if (newMovieCategoryNum == 1) {
                     newMovieCat = "animated";
                 } else if (newMovieCategoryNum == 2) {
                     newMovieCat = "drama";
                 } else if (newMovieCategoryNum == 3) {
                     newMovieCat = "horror";
-                } else {
+                } else if (newMovieCategoryNum == 4){
                     newMovieCat = "scifi";
+                } else {
+                    newMovieCat = "comedy";
                 }
                 allMovies = Movie.addMovie(allMovies, newMovieName, newMovieCat);
             }
@@ -62,7 +67,7 @@ public class MoviesApplication {
     public static void getAllMovies(Movie[] allMovies) {
         System.out.println("---All Movies---\n------------------------------");
         for (int i = 0; i < allMovies.length; i++) {
-            System.out.printf("#%d: %s\n", i + 1, allMovies[i].getMovieName());
+            System.out.printf("#%d: %s  -- %s\n", i + 1, allMovies[i].getMovieName(), allMovies[i].getMovieCategory());
         }
         System.out.println("\n");
     }
@@ -71,7 +76,7 @@ public class MoviesApplication {
         System.out.printf("---%s Category---\n------------------------------\n", cat);
         for (int i = 0; i < allMovies.length; i++) {
             if (allMovies[i].getMovieCategory().equalsIgnoreCase(cat)) {
-                System.out.printf("#%d: %s\n", i + 1, allMovies[i].getMovieName());
+                System.out.printf("#%d: %s -- %s\n", i + 1, allMovies[i].getMovieName(), allMovies[i].getMovieCategory());
             }
         }
         System.out.println("\n");

@@ -39,7 +39,12 @@ public class Movie {
     //Instance Methods///////////////////////////
     public static Movie[] addMovie(Movie[] currentMovies, String name, String cat) {
         Movie[] updatedMovies = Arrays.copyOf(currentMovies, (currentMovies.length + 1));
-        updatedMovies[updatedMovies.length-1] = new Movie(name, cat);
+        updatedMovies[updatedMovies.length - 1] = new Movie(name, cat);
+        return updatedMovies;
+    }
+    public static Movie[] addMovie(Movie[] currentMovies, Movie newMovie) {
+        Movie[] updatedMovies = Arrays.copyOf(currentMovies, (currentMovies.length + 1));
+        updatedMovies[updatedMovies.length - 1] = newMovie;
         return updatedMovies;
     }
 }

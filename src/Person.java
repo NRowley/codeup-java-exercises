@@ -5,7 +5,7 @@ public class Person {
 
     public Person(String personName){
         System.out.println("Creating new Person!");
-        name = personName;
+        this.name = personName;
     }
 
     public String getName() {
