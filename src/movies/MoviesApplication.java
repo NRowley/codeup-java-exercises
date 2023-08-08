@@ -37,7 +37,7 @@ public class MoviesApplication {
             } else if (viewOption == 5) {
                 String cat = "SciFi";
                 getMoviesByCat(allMovies, cat);
-            }else if (viewOption == 6) {
+            } else if (viewOption == 6) {
                 String cat = "Comedy";
                 getMoviesByCat(allMovies, cat);
             } else if (viewOption == 7) {
@@ -53,7 +53,7 @@ public class MoviesApplication {
                     newMovieCat = "drama";
                 } else if (newMovieCategoryNum == 3) {
                     newMovieCat = "horror";
-                } else if (newMovieCategoryNum == 4){
+                } else if (newMovieCategoryNum == 4) {
                     newMovieCat = "scifi";
                 } else {
                     newMovieCat = "comedy";
