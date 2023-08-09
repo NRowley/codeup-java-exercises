@@ -1,85 +1,86 @@
-//Create a package inside of src named util. Inside of util,
-// create a class named Input that has a private field named scanner.
-// When an instance of this object is created,
-// the scanner field should be set to a new instance of the Scanner class.
-// The class should have the following methods, all of which return command line input from the user:
-//
-//        String getString()
-//        boolean yesNo()
-//        int getInt(int min, int max)
-//        int getInt()
-//        double getDouble(double min, double max)
-//        double getDouble()
-//        The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
-//
-//        The getInt(int min, int max) method should keep prompting the user for input
-//        until they give an integer within the min and max.
-//        The getDouble method should do the same thing, but with decimal numbers.
-//
-//        Create another class named InputTest that has a static main method that uses all the methods from the Input class.
-
 package util;
 
 import java.util.Scanner;
 
 public class Input {
-    private final Scanner inputScan;
+    // Instance Field/Property/Variable
+    private Scanner scanner;
 
+    // Constructors
     public Input() {
-//        System.out.println("creating new input scanner");
-        inputScan = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
-    //String getString()
+    // Instance Methods
     public String getString() {
-//        System.out.println("Get String Method");
-        return inputScan.next();
+        return this.scanner.nextLine();
+    }
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return this.getString();
     }
 
-    //        boolean yesNo()
-    public Boolean yesNo() {
-//        System.out.println("yesNo Method");
-        String input = inputScan.next();
-        boolean output = false;
-        if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")) {
-            output = true;
-        } else if (input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")) {
-            return output;
-        }
-        return output;
+    // return true if user enters "yes", "y", "Y", "yassss"
+    // return false if user enters something that isn't interpreted as "yes"
+    public boolean yesNo() {
+        return this.getString().trim().toLowerCase().startsWith("y");
+    }
+    public boolean yesNo(String prompt) {
+        System.out.println(prompt);
+        return this.yesNo();
     }
 
-    //        int getInt(int min, int max)
-    public int getInt(int min, int max) {
-//        System.out.println("get Int (min max)");
-        int userInt = inputScan.nextInt();
-        while (userInt < min || userInt > max) {
-            System.out.printf("Enter a integer from %d - %d\n", min, max);
-            userInt = inputScan.nextInt();
-        }
-        return userInt;
-    }
-
-    //        int getInt()
     public int getInt() {
-        return inputScan.nextInt();
-    }
-
-    //        double getDouble(double min, double max)
-    public double getDouble(double min, double max) {
-//        System.out.println("get double (min max)");
-        double userDouble = inputScan.nextDouble();
-        while (userDouble < min || userDouble > max) {
-            System.out.printf("Enter a decimal number from %f - %f\n", min, max);
-            userDouble = inputScan.nextDouble();
+        try {
+            return Integer.parseInt(this.getString());
+        } catch (NumberFormatException e) {
+            System.out.println("You must enter a whole number");
+            return this.getInt();
         }
-        return userDouble;
+    }
+    public int getInt(String prompt) {
+        System.out.println(prompt);
+        return this.getInt();
+    }
+    public int getInt(int min, int max) {
+        int userInt = this.getInt();
+        if(userInt >= min && userInt <= max) {
+            return userInt;
+        } else {
+            System.out.printf("The number must be between %d and %d. Please try again.%n", min, max);
+            return getInt(min, max);
+        }
+    }
+    public int getInt(String prompt, int min, int max) {
+        System.out.println(prompt);
+        return this.getInt(min, max);
     }
 
-    //        double getDouble()
     public double getDouble() {
-//        System.out.println("get double");
-        return inputScan.nextDouble();
+        try {
+            return Double.parseDouble(this.getString());
+        } catch (NumberFormatException e) {
+            System.out.println("You must enter a number");
+            return this.getDouble();
+        }
     }
-}
+    public double getDouble(String prompt) {
+        System.out.println(prompt);
+        return this.getDouble();
+    }
+    public double getDouble(double min, double max) {
+        double userDouble = this.getDouble();
+        if(userDouble >= min && userDouble <= max) {
+            return userDouble;
+        } else {
+            System.out.printf("The number must be between %f and %f. Please try again.%n", min, max);
+            return getDouble(min, max);
+        }
+    }
+    public double getDouble(String prompt, double min, double max) {
+        System.out.println(prompt);
+        return this.getDouble(min, max);
+    }
 
+
+}
